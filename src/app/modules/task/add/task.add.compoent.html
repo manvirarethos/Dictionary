@@ -1,0 +1,75 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <form ngNoForm id="formValidation" action="#" method="">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+                            <i class="material-icons">contacts</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Add Task</h4>
+                            <div class="row">
+                                <div class="form-group label-floating col-md-6">
+                                    <label class="control-label">Menu
+
+                                    </label>
+                                    <select required="true" class="form-control" name="Heading" [(ngModel)]="taskModel.menuID">
+                                        <option value="">Choose Heading</option>
+                                        <option value="{{hed.id}}" *ngFor="let hed of Headings">{{hed.title}}</option>
+                                        <!-- <option value="Users">Users</option>
+                                            <option value="Transactions">Transactions</option> -->
+
+                                    </select>
+                                </div>
+                                <div class="form-group label-floating col-md-6">
+                                    <label class="control-label">Name
+
+                                    </label>
+                                    <input class="form-control" name="name" [(ngModel)]="taskModel.name"required="true" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="form-group label-floating col-md-6">
+                                        <label class="control-label">Title
+    
+                                        </label>
+                                        <input class="form-control" name="tite" [(ngModel)]="taskModel.title"  required="true" />
+                                    </div>
+                                    <div class="form-group label-floating col-md-6">
+                                        <label class="control-label">Url
+    
+                                        </label>
+                                        <input class="form-control" name="url" [(ngModel)]="taskModel.url" type="text" required="true" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="form-group label-floating col-md-6">
+                                            <label class="control-label">Sort Order
+        
+                                            </label>
+                                            <input class="form-control" name="sortOrder" [(ngModel)]="taskModel.sortOrder"  required="true" />
+                                        </div>
+                                        <!-- <div class="form-group label-floating col-md-6">
+                                            <label class="control-label">Url
+        
+                                            </label>
+                                            <input class="form-control" name="url" [(ngModel)]="taskModel.url" type="url" required="true" />
+                                        </div> -->
+                                    </div>
+
+                            <div class="text-center pull-right">
+                                    <button type="button" (click)="onBack()" class="btn btn-default btn-fill btn-wd">Back to list</button>
+                                <button type="button"  (click)="Save()" class="btn btn-rose btn-fill btn-wd">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-confirm [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></app-confirm>

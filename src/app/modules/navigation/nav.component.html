@@ -1,0 +1,29 @@
+<ul class="nav">
+    <li class="active">
+      <a href="dashboard.html">
+        <i class="material-icons">dashboard</i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+
+    <li *ngFor="let heading of Menu">
+        <a data-toggle="collapse" href="#{{heading.id}}">
+          <i class="material-icons">{{heading.styleClass}}</i>
+          <p>
+           {{heading.title}}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="{{heading.id}}" *ngIf="heading.task.length>0">
+          <ul class="nav">
+            <li *ngFor="let page of heading.tasks">
+              <a [routerLink]="[page.Url]">
+                <span class="sidebar-mini">SP</span>
+                <span class="sidebar-normal">{{page.title}}</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </li>
+  </ul>
