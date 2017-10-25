@@ -1,13 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-//import { Processing, CloseModal, Notify } from '../../../app.helpers';
-import { TaskService,SortingService } from '../../../services/_index'
+import { Processing, CloseModal, Notify } from '../../../app.helpers';
+import { RoleService,SortingService } from '../../../services/_index';
 @Component({
-  selector: 'companyuserList',
-  templateUrl: './task.list.componet.html',
+  selector: 'rolelist',
+  templateUrl: './role.list.component.html',
 
 })
-export class TaskListComponent {
+export class RoleListComponent {
   private value: any = {};
   private _disabledV: string = '0';
   private disabled: boolean = false;
@@ -17,29 +17,29 @@ export class TaskListComponent {
   /* Data Table Column */
    OrderColumn: any;
   cols: any[] = [
-    
-    
     {
-      name: "name",
-      title: "Code",
+      name: "Name",
+      title: "Role Name",
       sorted: false,
       sortAs: "",
       sortable: true,
       cssClass: "fw-normal",
       direction: 1
-    },
+    }
+     ,
     {
-      name: "title",
-      title: "Title",
+      name: "RoleForUserType",
+      title: "Role For",
       sorted: false,
       sortAs: "",
       sortable: true,
       cssClass: "fw-normal",
       direction: -1
-    },
+    }
+    ,
     {
-      name: "url",
-      title: "Url",
+      name: "enabled",
+      title: "Status",
       sorted: false,
       sortAs: "",
       sortable: true,
@@ -57,48 +57,33 @@ export class TaskListComponent {
     }
   ];
 
-  constructor(private _router: Router, private _service: TaskService,private  _sorting:SortingService) {
+  constructor(private _router: Router, private _service: RoleService,private  _sorting:SortingService) {
   }
   ngOnInit() {
     this._service.GetAll().subscribe(m => {
-
+console.log("DDDD",m);
       this.Data = m.data;
     });
   }
   ngAfterViewInit() { }
 
   onAdd() {
-    this._router.navigate(['task/add']);
+    this._router.navigate(['role/add']);
   }
   onEdit(edit) {
-    this._router.navigate(['task/edit',edit.id]);
+    this._router.navigate(['role/edit',edit.id]);
   }
   public onDelete(ID) {
     this.DeleteItemID = ID;
-   // CloseModal("#commonModal");
-  }
-  public selected(value: any): void {
-    console.log('Selected value is: ', value);
-  }
-
-  public removed(value: any): void {
-    console.log('Removed value is: ', value);
-  }
-
-  public typed(value: any): void {
-    console.log('New search input: ', value);
-  }
-
-  public refreshValue(value: any): void {
-    this.value = value;
+    CloseModal("#commonModal");
   }
 
 
   public btnOK(ID) {
-    this._service.Delete(this.DeleteItemID.id).subscribe(m => {
+    this._service.Delete(this.DeleteItemID._id).subscribe(m => {
       if (m.status == 1) {
         this.Data.splice(this.Data.indexOf(this.DeleteItemID), 1);
-      //  CloseModal("#commonModal");
+        CloseModal("#commonModal");
       }
       else {
 

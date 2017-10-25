@@ -1,45 +1,64 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-//import { Processing, CloseModal, Notify } from '../../../app.helpers';
-import { TaskService,SortingService } from '../../../services/_index'
+import { Processing, CloseModal } from '../../app.helpers';
+import { UserService ,SortingService} from '../../_services/_index';
+
 @Component({
   selector: 'companyuserList',
-  templateUrl: './task.list.componet.html',
+  templateUrl: './companyuser-list.component.html',
 
 })
-export class TaskListComponent {
+export class CompanyUserListComponent {
   private value: any = {};
   private _disabledV: string = '0';
   private disabled: boolean = false;
   private DeleteItemID: any;
-  Data: any;
+  private Data: any;
 
-  /* Data Table Column */
    OrderColumn: any;
   cols: any[] = [
-    
-    
     {
-      name: "name",
-      title: "Code",
+      name: "FirstName",
+      title: "First Name",
       sorted: false,
       sortAs: "",
       sortable: true,
       cssClass: "fw-normal",
       direction: 1
-    },
+    }
+     ,
+      {
+      name: "LastName",
+      title: "Last Name",
+      sorted: false,
+      sortAs: "",
+      sortable: true,
+      cssClass: "fw-normal",
+      direction: 1
+    } ,
+      {
+      name: "Email",
+      title: "Email",
+      sorted: false,
+      sortAs: "",
+      sortable: true,
+      cssClass: "fw-normal",
+      direction: 1
+    }
+     ,
     {
-      name: "title",
-      title: "Title",
+      name: "UserType",
+      title: "User Type",
       sorted: false,
       sortAs: "",
       sortable: true,
       cssClass: "fw-normal",
       direction: -1
-    },
+    }
+    ,
     {
-      name: "url",
-      title: "Url",
+      name: "Status",
+      title: "Status",
       sorted: false,
       sortAs: "",
       sortable: true,
@@ -56,26 +75,26 @@ export class TaskListComponent {
       direction: -1
     }
   ];
-
-  constructor(private _router: Router, private _service: TaskService,private  _sorting:SortingService) {
+  constructor(private _router: Router, private _service: UserService,private  _sorting:SortingService) {
   }
   ngOnInit() {
     this._service.GetAll().subscribe(m => {
-
-      this.Data = m.data;
+      console.log("All Data ", m);
+      this.Data = m.lstData;
     });
   }
   ngAfterViewInit() { }
 
   onAdd() {
-    this._router.navigate(['task/add']);
+    this._router.navigate(['company/user/add']);
   }
-  onEdit(edit) {
-    this._router.navigate(['task/edit',edit.id]);
+  onEdit(user) {
+    this._router.navigate(['company/user/edit', user._id]);
   }
-  public onDelete(ID) {
-    this.DeleteItemID = ID;
-   // CloseModal("#commonModal");
+  public onDelete(user) {
+   // console.log(user);
+    this.DeleteItemID = user;
+    CloseModal("#commonModal");
   }
   public selected(value: any): void {
     console.log('Selected value is: ', value);
@@ -92,24 +111,20 @@ export class TaskListComponent {
   public refreshValue(value: any): void {
     this.value = value;
   }
-
+ sortColum(col){
+    this._sorting.sort(col,this.Data);
+   }
 
   public btnOK(ID) {
-    this._service.Delete(this.DeleteItemID.id).subscribe(m => {
-      if (m.status == 1) {
+    this._service.Delete(this.DeleteItemID._id).subscribe(m => {
+      if (m.requestStatus == 1) {
         this.Data.splice(this.Data.indexOf(this.DeleteItemID), 1);
-      //  CloseModal("#commonModal");
+        CloseModal("#commonModal");
       }
       else {
 
       }
     })
 
-
   }
-
-   sortColum(col){
-    this._sorting.sort(col,this.Data);
-   }
-  
 }

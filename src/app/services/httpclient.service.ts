@@ -22,7 +22,8 @@ BaseURL:string;
       //  headers.append('Authorization', btoa(currentUser['user'].Email + ":" + currentUser['user'].Password));
 
          // let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-         headers.append('token',btoa(currentUser['user']));
+         console.log(currentUser['user']);
+         headers.append('token',btoa(JSON.stringify( currentUser['user'])));
          headers.append('Authorization', 'Bearer ' + currentUser['access_token'] );
 
     }

@@ -1,0 +1,91 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <form ngNoForm id="formValidation" action="#" method="">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+                            <i class="material-icons">contacts</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Update Role</h4>
+                            <div class="row">
+                               
+                                <div class="form-group label-floating col-md-6">
+                                    <label class="control-label">Name
+
+                                    </label>
+                                    <input class="form-control" name="name" [(ngModel)]="taskModel.name"required="true" />
+                                </div>
+                                <div class="form-group label-floating col-md-6">
+                                    <label class="control-label">Title
+
+                                    </label>
+                                    <input class="form-control" name="tite" [(ngModel)]="taskModel.title"  required="true" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                   
+                                    <div class="form-group label-floating col-md-6">
+                                        <label class="control-label">Enabled
+    
+                                        </label>
+                                        <select required="true" class="form-control" name="Heading" [(ngModel)]="taskModel.enabled">
+                                       
+                                            <option value="true" >Enabled</option>
+                                            <option value="false" >Disabled</option>
+                                          
+                                        </select>
+                                    </div>
+                                    <div class="form-group label-floating col-md-6">
+                                        <label class="control-label">Role Type
+    
+                                        </label>
+                                         <select required="true" class="form-control" name="Heading" [(ngModel)]="taskModel.roleForType">
+                                            
+                                                 <option value="1" >Super Admin</option>
+                                                 <option value="2" >Broadcaster Admin</option>
+                                                 <option value="3" >Broadcaster User</option>
+                                                 <option value="4" >Customer Admin</option>
+                                                 <option value="5" >Customer User</option>
+                                                
+                                             </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-12" >
+                                        <label class="col-sm-2 control-label"> </label>
+                            
+                                        <div class="col-sm-10">
+                                           <label class="col-sm-12 ">Choose tasks for this role</label>
+                                        </div>
+                            
+                                    </div>
+                                  
+                                    <div class="form-group col-sm-12" *ngFor="let hed of Headings">
+                                        <label class="col-sm-2 control-label">{{hed.title}}</label>
+                            
+                                        <div class="col-sm-10">
+                                            <div class="col-sm-4" *ngFor="let task of hed.task">
+                                                <input type="checkbox" (click)="CheckTask(task,$event.target.checked)" class="" value="task.id" checked="{{IsCheck(task)}}"> {{task.title}}
+                                            </div>
+                                        </div>
+                            
+                                    </div>
+                                </div>
+
+                            <div class="text-center pull-right">
+                                    <button type="button" (click)="onBack()" class="btn btn-default btn-fill btn-wd">Back to list</button>
+                                <button type="button"  (click)="Save()" class="btn btn-rose btn-fill btn-wd">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-confirm [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></app-confirm>

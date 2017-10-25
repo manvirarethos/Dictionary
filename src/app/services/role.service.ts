@@ -27,7 +27,7 @@ export class RoleService {
 
     // Update Existing heading
     Update(data) {
-        return this.http.put("/role/" + data._id, data);
+        return this.http.put("/role", data);
     }
 
     // Delete heading By ID

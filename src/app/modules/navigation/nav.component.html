@@ -1,12 +1,12 @@
 <ul class="nav">
-    <li class="active">
+    <li>
       <a href="dashboard.html">
         <i class="material-icons">dashboard</i>
         <p>Dashboard</p>
       </a>
     </li>
 
-    <li *ngFor="let heading of Menu">
+    <li *ngFor="let heading of Menu" routerLinkActive="active">
         <a data-toggle="collapse" href="#{{heading.id}}">
           <i class="material-icons">{{heading.styleClass}}</i>
           <p>
@@ -16,9 +16,9 @@
         </a>
         <div class="collapse" id="{{heading.id}}" *ngIf="heading.task.length>0">
           <ul class="nav">
-            <li *ngFor="let page of heading.tasks">
-              <a [routerLink]="[page.Url]">
-                <span class="sidebar-mini">SP</span>
+            <li *ngFor="let page of heading.task" routerLinkActive="active">
+              <a [routerLink]="[page.url]">
+                <span class="sidebar-mini">{{page.name}}</span>
                 <span class="sidebar-normal">{{page.title}}</span>
               </a>
             </li>

@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header " data-background-color="rose">
                         <div class="card-header card-header-text">
-                            <h4 class="card-title">Task List</h4>
+                            <h4 class="card-title">Role List</h4>
                         </div>
 
                         <div class="toolbar pull-right">
@@ -21,7 +21,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="dataTables_length" id="datatables_length">
-                                            <button type="button" (click)="onAdd()" class="btn btn-rose btn-fill">Add Task</button>
+                                            <button type="button" (click)="onAdd()" class="btn btn-rose btn-fill">Add Role</button>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -69,7 +69,7 @@
 
                                                     <td innerHTML='{{ rec.name|HighLight:txt_src}}'> </td>
                                                     <td innerHTML='{{ rec.title|HighLight:txt_src}}'> </td>
-                                                    <td>{{rec.url}}</td>
+                                                    <td>{{rec.enabled}}</td>
                                                   
                                                     <td class="text-right">
 

@@ -14,6 +14,7 @@ import { NavComponent } from './modules/navigation/nav.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 import { TaskModule } from './modules/task/task.module';
+import { RoleModule } from './modules/role/role.module';
 import { AuthService, StorageService, MenuService, HttpClient } from './services/_index';
 import { AppConfig } from './app.config';
 
@@ -27,6 +28,7 @@ import { AppConfig } from './app.config';
     HttpModule,
     DashboardModule,
     TaskModule,
+    RoleModule,
     RouterModule.forRoot([])
   ],
   providers: [AppConfig, AuthService, StorageService, MenuService, HttpClient],
