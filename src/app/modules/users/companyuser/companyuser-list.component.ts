@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Processing, CloseModal } from '../../app.helpers';
-import { UserService ,SortingService} from '../../_services/_index';
+import { Processing, CloseModal } from '../../../app.helpers';
+import { UserService ,SortingService} from '../../../services/_index';
 
 @Component({
   selector: 'companyuserList',

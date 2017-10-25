@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CloseModal, ValidateMe, ValidationCheck } from '../../app.helpers';
-import { UserService, RoleService } from '../../_services/_index';
+import { CloseModal, ValidateMe, ValidationCheck } from '../../../app.helpers';
+import { UserService, RoleService } from '../../../services/_index';
 
 @Component({
   selector: 'companyuserAdd',
