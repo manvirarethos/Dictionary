@@ -13,27 +13,27 @@ export class UserService {
 
     // Get All Users
     GetAll() {
-        return this.http.get("/user");
+        return this.http.get("/auth");
     }
     // Get User By ID
     GetOne(id) {
-        return this.http.get("/user/" + id);
+        return this.http.get("/auth/" + id);
     }
 
     // Add New User
     Add(data) {
-        return this.http.post("/user", data);
+        return this.http.post("/auth", data);
     }
 
     // Update Existing User
     Update(data) {
-        return this.http.put("/user/" + data._id, data);
+        return this.http.put("/auth/" + data._id, data);
     }
 
     // Delete User By ID
     Delete(data) {
         console.log("User ID",data);
-        return this.http.delete("/user/" + data);
+        return this.http.delete("/auth/" + data);
     }
 
 
