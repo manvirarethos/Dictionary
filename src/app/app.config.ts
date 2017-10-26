@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 export class AppConfig {
     config = {
         version: '1.0',
-        apiurl: 'http://localhost:56735/api',
-        apiloginurl: 'http://localhost:56735/api',
+        apiurl: 'http://localhost:5000/api',
+        apiloginurl: 'http://localhost:5000/api',
         debug: true,
         limit: 20,
 

@@ -15,6 +15,7 @@ export class CompanyUserAddComponent {
     UserType: '',
     Email: '',
     Password: '',
+    ConfirmPassword: '',
     Status: '',
     Roles: []
   };
@@ -45,6 +46,7 @@ export class CompanyUserAddComponent {
   }
   Save() {
     if (ValidationCheck("#userForm")) {
+      alert(this.UserModel);
       this._service.Add(this.UserModel).subscribe(m => {
         console.log("Save Called", m);
         if (m.requestStatus == 1) {

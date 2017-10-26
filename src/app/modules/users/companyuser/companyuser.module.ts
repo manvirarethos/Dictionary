@@ -37,7 +37,6 @@ import {UserService,HttpClient } from '../../../services/_index';
     SharedModule,
     RouterModule.forChild([
       { path: 'company/users', component: CompanyUserListComponent },
-      { path: '', component: CompanyUserListComponent },
       { path: 'company/user/add', component: CompanyUserAddComponent },
       { path: 'company/user/edit/:id', component: CompanyUserEditComponent }
     ])

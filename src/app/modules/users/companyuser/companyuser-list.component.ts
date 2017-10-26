@@ -78,7 +78,7 @@ export class CompanyUserListComponent {
   constructor(private _router: Router, private _service: UserService,private  _sorting:SortingService) {
   }
   ngOnInit() {
-    this._service.GetAll().subscribe(m => {
+   this._service.GetAll().subscribe(m => {
       console.log("All Data ", m);
       this.Data = m.lstData;
     });

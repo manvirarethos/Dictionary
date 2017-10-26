@@ -60,8 +60,10 @@ export class RoleListComponent {
   constructor(private _router: Router, private _service: RoleService,private  _sorting:SortingService) {
   }
   ngOnInit() {
+    alert("fhgfh");
     this._service.GetAll().subscribe(m => {
 console.log("DDDD",m);
+
       this.Data = m.data;
     });
   }
