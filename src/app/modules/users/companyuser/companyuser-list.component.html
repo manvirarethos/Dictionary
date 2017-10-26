@@ -61,18 +61,14 @@
                                                     </ng-container>
                                                 </tr>
                                             </thead>
-
                                             <tbody>
-
-
                                                 <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p }|SearchBy:{field:'title',data:txt_src}">
 
                                                     <td innerHTML='{{ rec.name|HighLight:txt_src}}'> </td>
                                                     <td innerHTML='{{ rec.title|HighLight:txt_src}}'> </td>
                                                     <td>{{rec.enabled}}</td>
-                                                  
+                                                    <td>{{rec.url}}</td>                                                  
                                                     <td class="text-right">
-
                                                         <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">
                                                             <i class="material-icons">edit</i>
                                                         </a>
@@ -110,3 +106,5 @@
         <!-- end row -->
     </div>
 </div>
+<app-confirm [Title]="'Delete Confirmation'" [desc]="'Are you sure to delete this record ?'" (btnOKClicked)="btnOK($event)"></app-confirm>
+

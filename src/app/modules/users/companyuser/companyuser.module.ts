@@ -38,7 +38,11 @@ import {UserService,HttpClient } from '../../../services/_index';
     RouterModule.forChild([
       { path: 'company/users', component: CompanyUserListComponent },
       { path: 'company/user/add', component: CompanyUserAddComponent },
-      { path: 'company/user/edit/:id', component: CompanyUserEditComponent }
+      { path: 'company/user/edit/:id', component: CompanyUserEditComponent },
+      { path: 'user', component: CompanyUserListComponent },
+      { path: 'user/list', component: CompanyUserListComponent },
+      { path: 'user/add', component: CompanyUserAddComponent },
+      { path: 'user/edit/:id', component: CompanyUserEditComponent }
     ])
   ],
   providers:[UserService,HttpClient]
