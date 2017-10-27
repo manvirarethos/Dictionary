@@ -15,6 +15,8 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 import { TaskModule } from './modules/task/task.module';
 import { RoleModule } from './modules/role/role.module';
+import { LanguageModule } from './modules/language/language.module';
+import { SourceModule } from './modules/source/source.module';
 
 import {CompanyUserModule} from './modules/users/companyuser/companyuser.module';
 import { AuthService, StorageService, MenuService, HttpClient } from './services/_index';
@@ -32,6 +34,8 @@ import { AppConfig } from './app.config';
     TaskModule,
     RoleModule,
     CompanyUserModule,
+    LanguageModule,
+    SourceModule,
     RouterModule.forRoot([])
   ],
   providers: [AppConfig, AuthService, StorageService, MenuService, HttpClient],
