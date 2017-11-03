@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CloseModal, ValidateMe, ValidationCheck } from '../../app.helpers';
 import { LanguageService, SortingService } from '../../services/_index';
 
 @Component({
@@ -14,8 +15,8 @@ export class LanguageComponent {
     private DeleteItemID: any;
     Data: any;
     AddModel: any = {
-        name: '',
-        title: '',
+        languageName: '',
+        languageCode: '',
         status: ''
 
     }
@@ -25,7 +26,7 @@ export class LanguageComponent {
     OrderColumn: any;
     cols: any[] = [
         {
-            name: "name",
+            name: "languageName",
             title: "Language Name",
             sorted: false,
             sortAs: "",
@@ -34,7 +35,7 @@ export class LanguageComponent {
             direction: 1
         },
         {
-            name: "title",
+            name: "languageCode",
             title: "Language Code",
             sorted: false,
             sortAs: "",
@@ -74,6 +75,7 @@ export class LanguageComponent {
         this._service.GetAll().subscribe(m => {
 
             this.Data = m.data;
+            console.log(this.Data);
         });
     }
     ngAfterViewInit() { }
@@ -87,6 +89,7 @@ export class LanguageComponent {
         this.PreviousEdit = edit;
         edit.Edit = true;
         this.EditModel = Object.assign({}, edit);
+        console.log(this.EditModel);
     }
     Update(edit) {
 
@@ -99,8 +102,8 @@ export class LanguageComponent {
                     this.Title = "Save Confirmation"
                     this.Msg = "Heading updated successfully...";
                     // this.Refresh();
-                    edit.name=this.EditModel.name;
-                    edit.title = this.EditModel.title;
+                    edit.languageName=this.EditModel.languageName;
+                    edit.languageCode = this.EditModel.languageCode;
                     edit.status = this.EditModel.status;
                     edit.Edit = false;
                     //  CloseModal("#commonModal");
@@ -122,7 +125,8 @@ export class LanguageComponent {
         this.Title = "Delete Confirmation"
         this.Msg = "Are you sure to delete this record ?";
         this.DeleteItemID = ID;
-      //  CloseModal("#commonModal");
+        console.log(ID);
+        CloseModal("#commonModal");
     }
 
 
@@ -140,15 +144,16 @@ export class LanguageComponent {
 
     }
     Save() {
-        console.log(this.AddModel);
       //  if (ValidationCheck("#headingForm")) {
             if(0==0){
             this._service.Add(this.AddModel).subscribe(m => {
+                 console.log(this.AddModel);
+                // alert(JSON.stringify(this.AddModel));
                 if (m.status == 1) {
                     this.Title = "Save Confirmation"
                     this.Msg = "Heading added successfully...";
                     this.Refresh();
-                    this.AddModel = { Heading: '', CssClass: '', SortOrder: '', Status: '' }
+                    this.AddModel = { languageName: '', languageCode: '', status: '' }
                     //  CloseModal("#commonModal");
                 } else {
                     this.Title = "Save Confirmation"

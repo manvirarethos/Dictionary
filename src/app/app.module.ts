@@ -19,7 +19,7 @@ import { LanguageModule } from './modules/language/language.module';
 import { SourceModule } from './modules/source/source.module';
 
 import {CompanyUserModule} from './modules/users/companyuser/companyuser.module';
-import { AuthService, StorageService, MenuService, HttpClient } from './services/_index';
+import { AuthService, StorageService, MenuService,LanguageService, SourceService, HttpClient } from './services/_index';
 import { AppConfig } from './app.config';
 
 @NgModule({
@@ -38,7 +38,7 @@ import { AppConfig } from './app.config';
     SourceModule,
     RouterModule.forRoot([])
   ],
-  providers: [AppConfig, AuthService, StorageService, MenuService, HttpClient],
+  providers: [AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

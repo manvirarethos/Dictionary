@@ -67,9 +67,9 @@
 
                                                 <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p }">
                                                     <ng-container *ngIf="!rec.Edit">
-                                                        <td tabindex="0" class="sorting_1">{{rec.name}}</td>
-                                                        <td>{{rec.title}}</td>
-                                                        <td>{{rec.enabled}}</td>
+                                                        <td tabindex="0" class="sorting_1">{{rec.languageName}}</td>
+                                                        <td>{{rec.languageCode}}</td>
+                                                        <td>{{rec.status}}</td>
                                                         <td class="text-right">
 
                                                             <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">
@@ -82,14 +82,14 @@
                                                     </ng-container>
                                                     <ng-container *ngIf="rec.Edit">
                                                         <td>
-                                                            <input required type="text" Name="Heading" class="form-control listcss" [(ngModel)]="EditModel.name">
+                                                            <input required type="text" Name="Heading" class="form-control listcss" [(ngModel)]="EditModel.languageName">
                                                         </td>
                                                         <td>
-                                                            <input required type="text" Name="CssClass" class="form-control listcss" [(ngModel)]="EditModel.title">
+                                                            <input required type="text" Name="CssClass" class="form-control listcss" [(ngModel)]="EditModel.languageCode">
                                                         </td>
                                                         
                                                         <td>
-                                                            <select required class="form-control" name="Status" [(ngModel)]="EditModel.enabled">
+                                                            <select required class="form-control" name="Status" [(ngModel)]="EditModel.status">
                                                                 <option value="">Choose Status</option>
                                                                 <option value="true">Enabled</option>
                                                                 <option value="false">Disabled</option>
@@ -115,15 +115,15 @@
                                                 <tr>
                                                         <td>
                                                                 <input required type="text" Name="Heading" class="form-control listcss"
-                                                                    [(ngModel)]="AddModel.name">
+                                                                    [(ngModel)]="AddModel.languageName">
                                                             </td>
                                                     <td>
                                                         <input required type="text" Name="Heading1" class="form-control listcss"
-                                                            [(ngModel)]="AddModel.title">
+                                                            [(ngModel)]="AddModel.languageCode">
                                                     </td>
                                                     
                                                     <td>
-                                                        <select required class="form-control" name="Status" [(ngModel)]="AddModel.Status">
+                                                        <select required class="form-control" name="Status" [(ngModel)]="AddModel.status">
                                                             <option value="">Choose Status</option>
                                                             <option value="true">Enabled</option>
                                                             <option value="false">Disabled</option>

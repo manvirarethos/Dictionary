@@ -46,11 +46,6 @@ export class LanguageService {
     }
 
    
-
-    // Add New heading
-    GetDBMenu() {
-        return this.http.get("/language");
-    }
     private handleError(error: Response) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console

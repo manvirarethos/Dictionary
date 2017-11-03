@@ -14,8 +14,8 @@ export class SourceComponent {
     private DeleteItemID: any;
     Data: any;
     AddModel: any = {
-        name: '',
-        title: '',
+        sourceName: '',
+        sourceCode: '',
         status: ''
 
     }
@@ -25,7 +25,7 @@ export class SourceComponent {
     OrderColumn: any;
     cols: any[] = [
         {
-            name: "name",
+            name: "sourceName",
             title: "Source Name",
             sorted: false,
             sortAs: "",
@@ -34,7 +34,7 @@ export class SourceComponent {
             direction: 1
         },
         {
-            name: "title",
+            name: "sourceCode",
             title: "Source Code",
             sorted: false,
             sortAs: "",
@@ -148,7 +148,7 @@ export class SourceComponent {
                     this.Title = "Save Confirmation"
                     this.Msg = "Heading added successfully...";
                     this.Refresh();
-                    this.AddModel = { Heading: '', CssClass: '', SortOrder: '', Status: '' }
+                    this.AddModel = { languageName: '', languageCode: '', status: '' }
                     //  CloseModal("#commonModal");
                 } else {
                     this.Title = "Save Confirmation"
