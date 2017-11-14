@@ -8,3 +8,4 @@ export * from './task.service';
 export * from './role.service';
 export * from './language.service';
 export * from './source.service';
+export * from './dictonary.service';

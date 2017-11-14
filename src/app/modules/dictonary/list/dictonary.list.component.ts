@@ -1,13 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Processing, CloseModal, Notify } from '../../../app.helpers';
-import { RoleService,SortingService } from '../../../services/_index';
+import { DictonaryService,SortingService } from '../../../services/_index';
 @Component({
-  selector: 'rolelist',
-  templateUrl: './role.list.component.html',
+  selector: 'dictonarylist',
+  templateUrl: './dictonary.list.component.html',
 
 })
-export class RoleListComponent {
+export class DictonaryListComponent {
   private value: any = {};
   private _disabledV: string = '0';
   private disabled: boolean = false;
@@ -19,33 +19,49 @@ export class RoleListComponent {
   cols: any[] = [
     {
       name: "Name",
-      title: "Role Name",
+      title: "Word",
       sorted: false,
       sortAs: "",
       sortable: true,
       cssClass: "fw-normal",
       direction: 1
-    }
-     ,
+    },
     {
-      name: "RoleForUserType",
-      title: "Role For",
-      sorted: false,
-      sortAs: "",
-      sortable: true,
-      cssClass: "fw-normal",
-      direction: -1
-    }
-    ,
-    {
-      name: "enabled",
-      title: "Status",
+      name: "Desc",
+      title: "Desc",
       sorted: false,
       sortAs: "",
       sortable: true,
       cssClass: "fw-normal",
       direction: -1
     },
+    {
+      name: "Source Name",
+      title: "SourceName",
+      sorted: false,
+      sortAs: "",
+      sortable: true,
+      cssClass: "fw-normal",
+      direction: -1
+    },
+    {
+      name: "Language Name",
+      title: "LanguageName",
+      sorted: false,
+      sortAs: "",
+      sortable: true,
+      cssClass: "fw-normal",
+      direction: -1
+    },
+    // {
+    //   name: "enabled",
+    //   title: "Status",
+    //   sorted: false,
+    //   sortAs: "",
+    //   sortable: true,
+    //   cssClass: "fw-normal",
+    //   direction: -1
+    // },
     {
       name: "Name",
       title: "Action",
@@ -57,22 +73,21 @@ export class RoleListComponent {
     }
   ];
 
-  constructor(private _router: Router, private _service: RoleService,private  _sorting:SortingService) {
+  constructor(private _router: Router, private _service: DictonaryService,private  _sorting:SortingService) {
   }
   ngOnInit() {
     this._service.GetAll().subscribe(m => {
 console.log("DDDD",m);
-
-      this.Data = m.data;
+    this.Data = m.data;
     });
   }
   ngAfterViewInit() { }
 
   onAdd() {
-    this._router.navigate(['role/add']);
+    this._router.navigate(['dictonary/add']);
   }
   onEdit(edit) {
-    this._router.navigate(['role/edit',edit.id]);
+    this._router.navigate(['dictonary/edit',edit.id]);
   }
   public onDelete(ID) {
     this.DeleteItemID = ID;

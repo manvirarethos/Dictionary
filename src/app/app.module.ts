@@ -17,9 +17,10 @@ import { TaskModule } from './modules/task/task.module';
 import { RoleModule } from './modules/role/role.module';
 import { LanguageModule } from './modules/language/language.module';
 import { SourceModule } from './modules/source/source.module';
+import { DictonaryModule } from './modules/dictonary/dictonary.module';
 
 import {CompanyUserModule} from './modules/users/companyuser/companyuser.module';
-import { AuthService, StorageService, MenuService,LanguageService, SourceService, HttpClient } from './services/_index';
+import { AuthService, StorageService, MenuService,LanguageService, SourceService, DictonaryService, HttpClient } from './services/_index';
 import { AppConfig } from './app.config';
 
 @NgModule({
@@ -36,9 +37,10 @@ import { AppConfig } from './app.config';
     CompanyUserModule,
     LanguageModule,
     SourceModule,
+    DictonaryModule,
     RouterModule.forRoot([])
   ],
-  providers: [AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService, HttpClient],
+  providers: [AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService,DictonaryService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
