@@ -1,23 +1,45 @@
+
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CloseModal, ValidateMe, ValidationCheck } from '../../../app.helpers';
-import { RoleService, MenuService } from '../../../services/_index';
+import { DictonaryService, LanguageService,SourceService } from '../../../services/_index';
 @Component({
     selector: 'app-adddictonary',
     templateUrl: './dictonary.add.component.html',
 
 })
 export class DictonaryAddComponent {
+    private 
     private value: any = {};
     private _disabledV: string = '0';
     private disabled: boolean = false;
     private DeleteItemID: any;
     Data: any;
     AddModel: any = {
-        language: '',
-        word: ''
-       
-    }
+        Word: '',
+        Translation: '',
+        DictonaryLanguage: [],
+        DictonarySource: [],
+    };
+    DictonaryLanguage: any = {
+        LanguageName: '',
+        Discreption: ''
+    };
+    EditDictonaryLanguage: any = {
+        LanguageName: '',
+        Discreption: ''
+    };
+    DictonarySource: any = {
+        SourceName: '',
+        WordMeaning: '',
+        Translation: ''
+    };
+    EditDictonarySource: any = {
+        SourceName: '',
+        WordMeaning: '',
+        Translation: ''
+    };
     EditModel: any;
     PreviousEdit: any;
     /* Data Table Column */
@@ -41,7 +63,7 @@ export class DictonaryAddComponent {
             cssClass: "fw-normal",
             direction: -1
         },
-      
+
         {
             name: "Name",
             title: "Action",
@@ -71,7 +93,7 @@ export class DictonaryAddComponent {
             cssClass: "fw-normal",
             direction: -1
         },
-      
+
         {
             name: "Name",
             title: "Action",
@@ -84,12 +106,13 @@ export class DictonaryAddComponent {
     ];
     Msg: String;
     Title: String;
-    constructor(private _router: Router, private _service: RoleService, private _menuSerive: MenuService) {
+    constructor(private _router: Router, private _service: DictonaryService, private sourceService: SourceService,private langService:LanguageService) {
     }
     ngOnInit() {
         ValidateMe("#formValidation");
-       // this.GetHeading();
-
+        // this.GetHeading();
+     
+        console.log("all languages" + this._service.GetAllLanguage());
     }
     ngAfterViewInit() { }
 
@@ -105,42 +128,72 @@ export class DictonaryAddComponent {
 
     }
 
-    // CheckTask(task, event) {
-    //     console.log("Event Data", event);
-    //     if (event == true) {
-    //         var roleTask = {menuTaskID:task.id}
-    //         this.taskModel.tasks.push(roleTask)
-    //     }
-    //     else {
-    //         var roletask =this.taskModel.tasks.filter(m=>m.id==task.id)[0];
-    //         this.taskModel.tasks.splice(this.taskModel.tasks.indexOf(roletask), 1);
+    AddLanguage() {
+        console.log(this.AddModel);
+        //alert(JSON.stringify(this.AddModel));
+        this.AddModel.DictonaryLanguage.push(this.DictonaryLanguage);
+        console.log(this.DictonaryLanguage);
+        this.DictonaryLanguage = { LanguageName: '', Discreption: '' };
+    }
+    onEdit(task) {
+        if (this.PreviousEdit != undefined)
+            this.PreviousEdit.Edit = false;
+        task.Edit = true;
+        this.PreviousEdit = task;
+        this.EditDictonaryLanguage = Object.assign({}, task);
+    }
+    Update(task) {
+        task.Edit = false;
+        task.LanguageName = this.EditDictonaryLanguage.LanguageName;
+        task.Discreption = this.EditDictonaryLanguage.Discreption;
+    }
+    Cancel(task) {
+        task.Edit = false;
+    }
+    onDelete(task) {
+        console.log(this.AddModel.DictonaryLanguage.indexOf(task));
+        this.AddModel.DictonaryLanguage.splice(this.AddModel.DictonaryLanguage.indexOf(task), 1);
+    }
 
-    //     }
-    //     console.log("Selected Tasks", this.taskModel.tasks);
-    // }
+    AddSource() {
+        console.log(this.AddModel);
+        //alert(JSON.stringify(this.AddModel));
+        this.AddModel.DictonarySource.push(this.DictonarySource);
+        console.log(this.DictonarySource);
+        this.DictonarySource = { SourceName: '', WordMeaning: '', Translation: '' };
+    }
+    onEditSource(task) {
+        if (this.PreviousEdit != undefined)
+            this.PreviousEdit.Edit = false;
+        task.Edit = true;
+        this.PreviousEdit = task;
+        this.EditDictonarySource = Object.assign({}, task);
+    }
+    UpdateSource(task) {
+        task.Edit = false;
+        task.SourceName = this.EditDictonarySource.SourceName;
+        task.WordMeaning = this.EditDictonarySource.WordMeaning;
+        task.Taranslation = this.EditDictonarySource.Translation;
+    }
 
-    //  GetHeading() {
-    //      this._menuSerive.GetDBMenu().subscribe(m => {
-    //          console.log("Menu Data", m);
-    //          this.Headings = m.data;
-    //      });
-    //  }
+    onDeleteSource(task) {
+        console.log(this.AddModel.DictonarySource.indexOf(task));
+        this.AddModel.DictonarySource.splice(this.AddModel.DictonarySource.indexOf(task), 1);
+    }
 
-    // Save() {
-    //     if (ValidationCheck("#formValidation")) {
-    //       console.log("Role Data",this.taskModel);
-        
-    //         this._service.Add(this.taskModel).subscribe(m => {
-
-    //             if (m.status == 1) {
-    //                 this.Msg = "Role added successfully...";
-    //                 CloseModal("#commonModal");
-    //             } else {
-    //                 this.Msg = "Error in saving record";
-    //                 CloseModal("#commonModal");
-    //             }
-    //         })
-    //     }
-    // }
+    Save() {
+        // if (ValidationCheck("#formValidation")) {
+        this._service.Add(this.AddModel).subscribe(m => {
+            console.log(this.AddModel);
+            if (m.status == 1) {
+                this.Msg = "Task added successfully...";
+                CloseModal("#commonModal");
+            } else {
+                this.Msg = "Error in saving record";
+                CloseModal("#commonModal");
+            }
+        })
+        //}
+    }
 
 }

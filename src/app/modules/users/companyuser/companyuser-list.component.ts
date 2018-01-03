@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Processing, CloseModal } from '../../../app.helpers';
-import { UserService ,SortingService} from '../../../services/_index';
+import { UserService, SortingService } from '../../../services/_index';
 
 @Component({
   selector: 'companyuserList',
@@ -13,9 +13,9 @@ export class CompanyUserListComponent {
   private _disabledV: string = '0';
   private disabled: boolean = false;
   private DeleteItemID: any;
-  private Data: any;
+  Data: any;
 
-   OrderColumn: any;
+  OrderColumn: any;
   cols: any[] = [
     {
       name: "FirstName",
@@ -26,8 +26,8 @@ export class CompanyUserListComponent {
       cssClass: "fw-normal",
       direction: 1
     }
-     ,
-      {
+    ,
+    {
       name: "LastName",
       title: "Last Name",
       sorted: false,
@@ -35,8 +35,8 @@ export class CompanyUserListComponent {
       sortable: true,
       cssClass: "fw-normal",
       direction: 1
-    } ,
-      {
+    },
+    {
       name: "Email",
       title: "Email",
       sorted: false,
@@ -45,7 +45,7 @@ export class CompanyUserListComponent {
       cssClass: "fw-normal",
       direction: 1
     }
-     ,
+    ,
     {
       name: "UserType",
       title: "User Type",
@@ -75,26 +75,27 @@ export class CompanyUserListComponent {
       direction: -1
     }
   ];
-  constructor(private _router: Router, private _service: UserService,private  _sorting:SortingService) {
+  constructor(private _router: Router, private _service: UserService, private _sorting: SortingService) {
   }
   ngOnInit() {
-   this._service.GetAll().subscribe(m => {
-      console.log("All Data ", m);
-      this.Data = m.lstData;
+    this._service.GetAll().subscribe(m => {
+      console.log("All Data cbvcbv", m);
+      this.Data = m.data;
     });
   }
   ngAfterViewInit() { }
 
   onAdd() {
-    this._router.navigate(['company/user/add']);
+    this._router.navigate(['user/add']);
   }
   onEdit(user) {
-    this._router.navigate(['company/user/edit', user._id]);
+    alert(JSON.stringify(user));
+    this._router.navigate(['user/edit', user.id]);
   }
   public onDelete(user) {
-   // console.log(user);
+    // console.log(user);
     this.DeleteItemID = user;
-    CloseModal("#commonModal");
+   //CloseModal("#commonModal");
   }
   public selected(value: any): void {
     console.log('Selected value is: ', value);
@@ -111,9 +112,9 @@ export class CompanyUserListComponent {
   public refreshValue(value: any): void {
     this.value = value;
   }
- sortColum(col){
-    this._sorting.sort(col,this.Data);
-   }
+  sortColum(col) {
+    this._sorting.sort(col, this.Data);
+  }
 
   public btnOK(ID) {
     this._service.Delete(this.DeleteItemID._id).subscribe(m => {

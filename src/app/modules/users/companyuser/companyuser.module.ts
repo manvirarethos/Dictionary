@@ -8,7 +8,7 @@ import { Ng2PaginationModule } from 'ng2-pagination';
 import { SelectModule } from 'ng2-select';
 
 // Shard Module
-import { SharedModule } from '../../../shared/shared.module'
+import { SharedModule } from '../../../shared/shared.module';
 
 // Company User Components for List, Add, Edit and Delete Oprations
 import { CompanyUserListComponent } from './companyuser-list.component';
@@ -17,16 +17,14 @@ import { CompanyUserEditComponent } from './companyuser-edit.component';
 
 
 // Services for the Module
-import {UserService,HttpClient } from '../../../services/_index';
+import { UserService, HttpClient } from '../../../services/_index';
 
 
 @NgModule({
   declarations: [
     CompanyUserListComponent,
     CompanyUserAddComponent,
-    CompanyUserEditComponent,
-    
-    
+    CompanyUserEditComponent
   ],
   imports: [
 
@@ -36,16 +34,16 @@ import {UserService,HttpClient } from '../../../services/_index';
     Ng2PaginationModule,
     SharedModule,
     RouterModule.forChild([
-      { path: 'company/users', component: CompanyUserListComponent },
-      { path: 'company/user/add', component: CompanyUserAddComponent },
-      { path: 'company/user/edit/:id', component: CompanyUserEditComponent },
-      { path: 'user', component: CompanyUserListComponent },
+      // { path: 'company/users', component: CompanyUserListComponent },
+      // { path: 'company/user/add', component: CompanyUserAddComponent },
+      // { path: 'company/user/edit/:id', component: CompanyUserEditComponent },
+     { path: 'users', component: CompanyUserListComponent },
       { path: 'user/list', component: CompanyUserListComponent },
       { path: 'user/add', component: CompanyUserAddComponent },
       { path: 'user/edit/:id', component: CompanyUserEditComponent }
     ])
   ],
-  providers:[UserService,HttpClient]
+  providers: [ UserService, HttpClient]
 
 })
 export class CompanyUserModule {

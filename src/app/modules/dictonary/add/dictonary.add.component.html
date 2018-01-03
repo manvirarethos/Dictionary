@@ -13,105 +13,179 @@
                             <div class="row">
 
                                 <div class="form-group label-floating col-md-6">
-                                    <label class="control-label">Word
+                                    <label class="control-label">Wright Words
 
                                     </label>
-                                    <input class="form-control" name="name" [(ngModel)]="taskModel.name" required="true" />
+                                    <input class="form-control" name="name" [(ngModel)]="AddModel.Word" required="true" />
                                 </div>
-                                <div class="form-group label-floating col-md-6">
+                                <!-- <div class="form-group label-floating col-md-6">
                                     <label class="control-label">Description
 
                                     </label>
-                                    <input class="form-control" name="tite" [(ngModel)]="taskModel.title" required="true" />
-                                </div>
+                                    <input class="form-control" name="tite" [(ngModel)]="AddModel.Translation" required="true" />
+                                </div> -->
                             </div>
 
 
+                            <div class="form-group col-sm-12">
 
-
-                            <!-- <div class="text-center pull-right">
-                                <button type="button" (click)="onBack()" class="btn btn-default btn-fill btn-wd">Back to list</button>
-                                <button type="button" (click)="Save()" class="btn btn-rose btn-fill btn-wd">Save</button>
-                            </div> -->
-                        </div>
-                    </form>
-                    <div>
-                        <div class="form-group col-sm-12">
-                            <label class="control-label"> </label>
-
-                            <div class="col-sm-10">
-                                <label class="col-sm-12" style="color:black">
-                                    <b>Add Language</b>
+                                <label style="color:black">
+                                    <b>Language</b>
                                 </label>
-                            </div>
+                                <div class="table-responsive">
+                                    <div class="form-group">
+                                        <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
+                                            <thead>
+                                                <th>Language</th>
+                                                <th>Word</th>
+                                                <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let rec of AddModel.DictonaryLanguage">
+                                                    <ng-container *ngIf="!rec.Edit">
+                                                        <td>{{rec.LanguageName}}</td>
+                                                        <td>{{rec.Discreption}}</td>
+                                                        <td class="text-right">
 
-                        </div>
+                                                            <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                                                <i class="material-icons">edit</i>
+                                                            </a>
+                                                            <a (click)="onDelete(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                                                <i class="material-icons">delete</i>
+                                                            </a>
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="rec.Edit">
+                                                        <td>
+                                                            <select required class="form-control" name="Status" [(ngModel)]="EditDictonaryLanguage.LanguageName">
+                                                                <option value="">Choose Language</option>
+                                                                <option value="English">English</option>
+                                                                <option value="Hindi">Hindi</option>
+                                                                <option value="Punjabi">Punjabi</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input required type="text" Name="word" class="form-control listcss" [(ngModel)]="EditDictonaryLanguage.Discreption">
+                                                        </td>
 
-                        <div class="col-sm-12 table-responsive">
-                            <div class="form-group">
-                                <form>
-                                    <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
-                                        <thead>
-                                            <th>Language</th>
-                                            <th>Word</th>
-                                            <th>Action</th>
-                                        </thead>
-                                        <tbody>
-                                            <!-- <tr> 
-                                            <ng-container *ngIf != "rec.Edit">-->
-                                            <td>hgh</td>
-                                            <td>ggu</td>
-                                            <td>hgf</td>
-                                            <!--</ng-container>-->
-                                            <ng-container *ngIf="rec.Edit">
+                                                        <td class="text-right">
+                                                            <a (click)="Update(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                                                <i class="material-icons">save</i>
+                                                            </a>
+                                                            <a (click)="Cancel(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                                                <i class="material-icons">close</i>
+                                                            </a>
+                                                        </td>
+                                                    </ng-container>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+
+                                                <tr>
                                                     <td>
-                                                        <input required type="text" Name="Heading" class="form-control listcss" [(ngModel)]="EditModel.languageName">
-                                                    </td>
-                                                    <td>
-                                                        <input required type="text" Name="CssClass" class="form-control listcss" [(ngModel)]="EditModel.languageCode">
-                                                    </td>
-                                                    
-                                                    <td>
-                                                        <select required class="form-control" name="Status" [(ngModel)]="EditModel.status">
-                                                            <option value="">Choose Status</option>
-                                                            <option value="true">Enabled</option>
-                                                            <option value="false">Disabled</option>
+                                                        <select required class="form-control" name="Status" [(ngModel)]="DictonaryLanguage.LanguageName">
+                                                            <option value="">Choose Language</option>
+                                                            <option value="English">English</option>
+                                                            <option value="Hindi">Hindi</option>
+                                                            <option value="Punjabi">Punjabi</option>
                                                         </select>
                                                     </td>
+                                                    <td>
+                                                        <input required type="text" Name="word" class="form-control listcss" [(ngModel)]="DictonaryLanguage.Discreption">
+                                                    </td>
+
+
                                                     <td class="text-right">
-                                                        <a (click)="Update(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                                        <a (click)="AddLanguage()" class="btn btn-simple btn-warning btn-icon edit">
+                                                            <i class="material-icons">save</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+
+                                            </tfoot>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-sm-12">
+                                <label style="color:black">
+                                    <b>By Source</b>
+                                </label>
+                                <div class="table-responsive">
+                                <div class="form-group">
+                                    <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
+                                        <thead>
+                                            <th>Source</th>
+                                            <th>Word</th>
+                                            <th>Translation</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let rec of AddModel.DictonarySource">
+                                                <ng-container *ngIf="!rec.Edit">
+                                                    <td>{{rec.SourceName}}</td>
+                                                    <td>{{rec.WordMeaning}}</td>
+                                                    <td>{{rec.Translation}}</td>
+                                                    <td class="text-right">
+
+                                                        <a (click)="onEditSource(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                                            <i class="material-icons">edit</i>
+                                                        </a>
+                                                        <a (click)="onDeleteSource(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                                            <i class="material-icons">delete</i>
+                                                        </a>
+                                                    </td>
+                                                </ng-container>
+                                                <ng-container *ngIf="rec.Edit">
+                                                    <td>
+                                                        <select required class="form-control" name="Status" [(ngModel)]="EditDictonarySource.SourceName">
+                                                            <option value="">Choose Source</option>
+                                                            <option value="English">English</option>
+                                                            <option value="Hindi">Hindi</option>
+                                                            <option value="Punjabi">Punjabi</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input required type="text" Name="word" class="form-control listcss" [(ngModel)]="EditDictonarySource.WordMeaning">
+                                                    </td>
+
+                                                    <td>
+                                                        <input required type="text" Name="word" class="form-control listcss" [(ngModel)]="EditDictonarySource.Translation">
+                                                    </td>
+
+                                                    <td class="text-right">
+                                                        <a (click)="UpdateSource(rec)" class="btn btn-simple btn-warning btn-icon edit">
                                                             <i class="material-icons">save</i>
                                                         </a>
                                                         <a (click)="Cancel(rec)" class="btn btn-simple btn-danger btn-icon remove">
                                                             <i class="material-icons">close</i>
                                                         </a>
-
-
                                                     </td>
                                                 </ng-container>
-                                            <!-- </tr> -->
+                                            </tr>
                                         </tbody>
                                         <tfoot>
 
                                             <tr>
                                                 <td>
-                                                    <select required class="form-control" name="Status" [(ngModel)]="AddModel.status">
+                                                    <select required class="form-control" name="Status" [(ngModel)]="DictonarySource.SourceName">
                                                         <option value="">Choose Language</option>
-                                                        <option value="true">English</option>
-                                                        <option value="false">Hindi</option>
-                                                        <option value="false">Punjabi</option>
+                                                        <option value="English">English</option>
+                                                        <option value="Hindi">Hindi</option>
+                                                        <option value="Punjabi">Punjabi</option>
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input required type="text" Name="Heading" class="form-control listcss" [(ngModel)]="AddModel.languageName">
+                                                    <input required type="text" Name="WordMeaning" class="form-control listcss" [(ngModel)]="DictonarySource.WordMeaning">
                                                 </td>
                                                 <td>
-                                                    <input required type="text" Name="Heading1" class="form-control listcss" [(ngModel)]="AddModel.languageCode">
+                                                    <input required type="text" Name="Translation" class="form-control listcss" [(ngModel)]="DictonarySource.Translation">
                                                 </td>
 
-
                                                 <td class="text-right">
-                                                    <a (click)="Save()" class="btn btn-simple btn-warning btn-icon edit">
+                                                    <a (click)="AddSource()" class="btn btn-simple btn-warning btn-icon edit">
                                                         <i class="material-icons">save</i>
                                                     </a>
                                                 </td>
@@ -119,75 +193,21 @@
 
                                         </tfoot>
                                     </table>
-                                </form>
+                                </div>
+
+
+                            </div>
                             </div>
 
 
-                        </div>
-                    </div>
-                    <div>
-                        <div class="form-group col-sm-12">
-                            <label class="control-label"> </label>
+                            <div class="text-center pull-right">
 
-                            <div class="col-sm-10">
-                                <label class="col-sm-12" style="color:black">
-                                    <b>Add Source</b>
-                                </label>
+                                <button type="button" (click)="onBack()" class="btn btn-default btn-fill btn-wd">Back to list</button>
+                                <button type="button" (click)="Save()" class="btn btn-rose btn-fill btn-wd">Save</button>
                             </div>
-
                         </div>
+                    </form>
 
-                        <div class="col-sm-12 table-responsive">
-                            <div class="form-group">
-                                <form>
-                                    <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
-                                        <thead>
-                                            <th>Source</th>
-                                            <th>Meaning</th>
-                                            <th>Translation</th>
-                                        </thead>
-                                        <tbody>
-                                            <td>hgh</td>
-                                            <td>ggu</td>
-                                            <td>hgf</td>
-                                        </tbody>
-                                        <tfoot>
-
-                                            <tr>
-                                                <td>
-                                                    <select required class="form-control" name="Status" [(ngModel)]="AddModel.status">
-                                                        <option value="">Choose Language</option>
-                                                        <option value="true">English</option>
-                                                        <option value="false">Hindi</option>
-                                                        <option value="false">Punjabi</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <input required type="text" Name="Heading" class="form-control listcss" [(ngModel)]="AddModel.languageName">
-                                                </td>
-                                                <td>
-                                                    <input required type="text" Name="Heading1" class="form-control listcss" [(ngModel)]="AddModel.languageCode">
-                                                </td>
-
-                                                <td class="text-right">
-                                                    <a (click)="Save()" class="btn btn-simple btn-warning btn-icon edit">
-                                                        <i class="material-icons">save</i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                        </tfoot>
-                                    </table>
-                                </form>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="text-center pull-right">
-                        <button type="button" (click)="onBack()" class="btn btn-default btn-fill btn-wd">Back to list</button>
-                        <!-- <button type="button" (click)="Save()" class="btn btn-rose btn-fill btn-wd">Save</button> -->
-                    </div>
                 </div>
 
             </div>
@@ -196,4 +216,4 @@
     </div>
 
 </div>
-<app-confirm [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></app-confirm>
+<!-- <app-confirm [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></app-confirm> -->

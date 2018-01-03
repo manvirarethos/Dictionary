@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Processing, CloseModal ,setFormValidation,ValidationCheck,ValidateMe} from '../../../app.helpers';
+import { Processing, CloseModal, setFormValidation, ValidationCheck, ValidateMe } from '../../../app.helpers';
 import { TaskService, MenuService } from '../../../services/_index';
 @Component({
   selector: 'app-addtask',
@@ -35,17 +35,17 @@ export class TaskAddComponent {
   }
   Save() {
     if (ValidationCheck("#formValidation")) {
-    this._service.Add(this.taskModel).subscribe(m => {
+      this._service.Add(this.taskModel).subscribe(m => {
 
-      if (m.status == 1) {
-        this.Msg = "Task added successfully...";
-        CloseModal("#commonModal");
-      } else {
-        this.Msg = "Error in saving record";
-        CloseModal("#commonModal");
-      }
-    })
-     }
+        if (m.status == 1) {
+          this.Msg = "Task added successfully...";
+          CloseModal("#commonModal");
+        } else {
+          this.Msg = "Error in saving record";
+          CloseModal("#commonModal");
+        }
+      })
+    }
   }
 
   public selected(value: any): void {
@@ -77,7 +77,7 @@ export class TaskAddComponent {
       if (m.status == 1)
         this.Headings = m.data;
 
-        setFormValidation("#formValidation");
+      setFormValidation("#formValidation");
     });
   }
 

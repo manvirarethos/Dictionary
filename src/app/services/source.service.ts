@@ -24,6 +24,9 @@ export class SourceService {
     GetAll() {
         return this.http.get("/source");
     }
+    GetActive() {
+        return this.http.get("/source/active");
+    }
     // Get heading By ID
     GetOne(id) {
         return this.http.get("/source/" + id);

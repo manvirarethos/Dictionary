@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Processing, CloseModal, Notify } from '../../../app.helpers';
-import { DictonaryService,SortingService } from '../../../services/_index';
+import { DictonaryService, SortingService } from '../../../services/_index';
 @Component({
   selector: 'dictonarylist',
   templateUrl: './dictonary.list.component.html',
@@ -15,7 +15,7 @@ export class DictonaryListComponent {
   Data: any;
 
   /* Data Table Column */
-   OrderColumn: any;
+  OrderColumn: any;
   cols: any[] = [
     {
       name: "Name",
@@ -72,13 +72,12 @@ export class DictonaryListComponent {
       direction: -1
     }
   ];
-
-  constructor(private _router: Router, private _service: DictonaryService,private  _sorting:SortingService) {
+  constructor(private _router: Router, private _service: DictonaryService, private _sorting: SortingService, ) {
   }
   ngOnInit() {
     this._service.GetAll().subscribe(m => {
-console.log("DDDD",m);
-    this.Data = m.data;
+      console.log("DDDD", m);
+      this.Data = m.data;
     });
   }
   ngAfterViewInit() { }
@@ -87,11 +86,14 @@ console.log("DDDD",m);
     this._router.navigate(['dictonary/add']);
   }
   onEdit(edit) {
-    this._router.navigate(['dictonary/edit',edit.id]);
+    this._router.navigate(['dictonary/edit', edit.id]);
   }
   public onDelete(ID) {
     this.DeleteItemID = ID;
     CloseModal("#commonModal");
+  }
+  public SaveLanguage(add) {
+
   }
 
 
@@ -109,8 +111,8 @@ console.log("DDDD",m);
 
   }
 
-   sortColum(col){
-    this._sorting.sort(col,this.Data);
-   }
-  
+  sortColum(col) {
+    this._sorting.sort(col, this.Data);
+  }
+
 }

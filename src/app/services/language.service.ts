@@ -24,6 +24,9 @@ export class LanguageService {
     GetAll() {
         return this.http.get("/language");
     }
+    GetActive() {
+        return this.http.get("/language/active");
+    }
     // Get heading By ID
     GetOne(id) {
         return this.http.get("/language/" + id);

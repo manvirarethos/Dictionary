@@ -64,10 +64,11 @@
                                             <tbody>
                                                 <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p }|SearchBy:{field:'title',data:txt_src}">
 
-                                                    <td innerHTML='{{ rec.name|HighLight:txt_src}}'> </td>
-                                                    <td innerHTML='{{ rec.title|HighLight:txt_src}}'> </td>
-                                                    <td>{{rec.enabled}}</td>
-                                                    <td>{{rec.url}}</td>                                                  
+                                                    <td innerHTML='{{ rec.firstName |HighLight:txt_src}}'> </td>
+                                                    <td innerHTML='{{ rec.lastName |HighLight:txt_src}}'> </td>
+                                                    <td>{{rec.emailAddress}}</td>
+                                                    <td>{{rec.userType}}</td>  
+                                                    <td>{{rec.status}}</td>                                                
                                                     <td class="text-right">
                                                         <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">
                                                             <i class="material-icons">edit</i>

@@ -55,7 +55,7 @@ export class RoleAddComponent {
         console.log("Selected Tasks", this.taskModel.tasks);
     }
 
-    GetHeading() {
+GetHeading() {
         this._menuSerive.GetDBMenu().subscribe(m => {
             console.log("Menu Data", m);
             this.Headings = m.data;

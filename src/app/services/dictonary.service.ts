@@ -11,6 +11,10 @@ export class DictonaryService {
 
 
 
+    // Get All Languages
+    GetAllLanguage() {
+        return this.http.get("/dictonary");
+    }
       // Get All headings
     GetAll() {
         return this.http.get("/dictonary");
@@ -33,7 +37,7 @@ export class DictonaryService {
     // Delete heading By ID
     Delete(data) {
         console.log("heading ID",data);
-        return this.http.delete("/role/" + data);
+        return this.http.delete("/dictonary/" + data);
     }
 
     // Add New heading

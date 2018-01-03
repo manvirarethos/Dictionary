@@ -38,12 +38,12 @@ import { DictonaryAddComponent } from './add/dictonary.Add.component';
         SharedModule,
         RouterModule.forChild([
              { path: 'dictonary/list', component: DictonaryListComponent },
-             { path: 'dictonary/add', component: DictonaryAddComponent },
+             { path: 'dictonary/add', component: DictonaryAddComponent }
             // { path: 'role/edit/:id', component: RoleEditComponent }
           
         ])
     ],
-    providers: [DictonaryService, HttpClient, SortingService,MenuService]
+    providers: [DictonaryService, HttpClient, SortingService, MenuService]
 
 })
 export class DictonaryModule {
