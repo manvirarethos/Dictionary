@@ -12,6 +12,17 @@
     }
 }
 
+@font-face {
+  font-family: 'amritboli';
+  src: url('../fonts/amritboli.ttf');
+}
+
+
+
+.punjabi {
+  font-family: 'amritboli';
+}
+
 #map {
     position: relative;
     width: 100%;

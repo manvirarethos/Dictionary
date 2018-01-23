@@ -40,7 +40,7 @@
                                                     <!-- <th class="sorting_asc" tabindex="0" rowspan="1" colspan="1">Name</th> -->
                                                     <ng-container *ngFor="let col of cols">
                                                         <th *ngIf="col.sortable" [class]="col.cssClass" (click)="sortColum(col)">
-                                                            <span class="col-md-8">
+                                                            <span class="col-md-8 ">
                                                                 {{col.title}}
                                                             </span>
 
@@ -65,12 +65,10 @@
                                             <tbody>
 
 
-                                                <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p }|SearchBy:{field:'title',data:txt_src}">
+                                                <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p }|SearchBy:{field:'word',data:txt_src}">
 
-                                                    <td innerHTML='{{ rec.name|HighLight:txt_src}}'> </td>
-                                                    <td innerHTML='{{ rec.title|HighLight:txt_src}}'> </td>
-                                                    <td>{{rec.enabled}}</td>
-                                                  
+                                                    <td class="punjabi" innerHTML='{{ rec.word|HighLight:txt_src}}'> </td>
+                                                  <td class="punjabi">{{rec.translation}}</td>  
                                                     <td class="text-right">
 
                                                         <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">

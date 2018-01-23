@@ -18,7 +18,7 @@ export class DictonaryListComponent {
   OrderColumn: any;
   cols: any[] = [
     {
-      name: "Name",
+      name: "word",
       title: "Word",
       sorted: false,
       sortAs: "",
@@ -35,34 +35,7 @@ export class DictonaryListComponent {
       cssClass: "fw-normal",
       direction: -1
     },
-    {
-      name: "Source Name",
-      title: "SourceName",
-      sorted: false,
-      sortAs: "",
-      sortable: true,
-      cssClass: "fw-normal",
-      direction: -1
-    },
-    {
-      name: "Language Name",
-      title: "LanguageName",
-      sorted: false,
-      sortAs: "",
-      sortable: true,
-      cssClass: "fw-normal",
-      direction: -1
-    },
-    // {
-    //   name: "enabled",
-    //   title: "Status",
-    //   sorted: false,
-    //   sortAs: "",
-    //   sortable: true,
-    //   cssClass: "fw-normal",
-    //   direction: -1
-    // },
-    {
+       {
       name: "Name",
       title: "Action",
       sorted: false,

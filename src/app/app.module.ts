@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +23,9 @@ import {CompanyUserModule} from './modules/users/companyuser/companyuser.module'
 import { AuthService, StorageService, MenuService,LanguageService, SourceService, DictonaryService, HttpClient } from './services/_index';
 import { AppConfig } from './app.config';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent, LoginComponent, FooterComponent, HeaderComponent, NavComponent
@@ -38,9 +41,9 @@ import { AppConfig } from './app.config';
     LanguageModule,
     SourceModule,
     DictonaryModule,
-    RouterModule.forRoot([])
+        RouterModule.forRoot([])
   ],
-  providers: [AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService,DictonaryService, HttpClient],
+  providers: [{ provide: LOCALE_ID, useValue: "pa" },AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService,DictonaryService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

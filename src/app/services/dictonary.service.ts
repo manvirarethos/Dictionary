@@ -10,11 +10,6 @@ export class DictonaryService {
     { }
 
 
-
-    // Get All Languages
-    GetAllLanguage() {
-        return this.http.get("/dictonary");
-    }
       // Get All headings
     GetAll() {
         return this.http.get("/dictonary");
