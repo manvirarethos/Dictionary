@@ -1,0 +1,15 @@
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.API.deps.json
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.API.runtimeconfig.json
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.API.runtimeconfig.dev.json
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.API.dll
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.API.pdb
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.BAL.dll
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.DBL.dll
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.BAL.pdb
+E:\Projects\amrik\Projects\API\PIT.API\bin\Release\netcoreapp2.0\PIT.DBL.pdb
+E:\Projects\amrik\Projects\API\PIT.API\obj\Release\netcoreapp2.0\PIT.API.csprojResolveAssemblyReference.cache
+E:\Projects\amrik\Projects\API\PIT.API\obj\Release\netcoreapp2.0\PIT.API.csproj.CoreCompileInputs.cache
+E:\Projects\amrik\Projects\API\PIT.API\obj\Release\netcoreapp2.0\PIT.API.AssemblyInfoInputs.cache
+E:\Projects\amrik\Projects\API\PIT.API\obj\Release\netcoreapp2.0\PIT.API.AssemblyInfo.cs
+E:\Projects\amrik\Projects\API\PIT.API\obj\Release\netcoreapp2.0\PIT.API.dll
+E:\Projects\amrik\Projects\API\PIT.API\obj\Release\netcoreapp2.0\PIT.API.pdb

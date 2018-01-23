@@ -1,0 +1,334 @@
+﻿{
+  "name": "Punjabi (Gurmukhi)",
+  "keys": [
+    [
+      [ "" ],
+      [ "1",  "੧" ],
+      [ "2",  "੨" ],
+      [ "3",  "੩" ],
+      [ "4",  "੪" ],
+      [ "5",  "੫" ],
+      [ "6", "੬" ],
+      [ "7", "੭" ],
+      [ "8",  "੮" ],
+      [ "9", "(",  "੯" ],
+      [ "0", ")", "੦", "੦" ],
+      [ "-" ],
+      [ "" ],
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Bksp"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Bksp"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Bksp"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Bksp"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Tab"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Tab"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Tab"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Tab"
+        }
+      ],
+      [ "ੌ", "ਔ" ],
+      [ "ੈ", "ਐ" ],
+      [ "ਾ", "ਆ" ],
+      [ "ੀ", "ਈ" ],
+      [ "ੂ", "ਊ" ],
+      [ "ਬ", "ਭ" ],
+      [ "ਹ", "ਙ" ],
+      [ "ਗ", "ਘ", "ਗ਼", "ਗ਼" ],
+      [ "ਦ", "ਧ" ],
+      [ "ਜ", "ਝ", "ਜ਼", "ਜ਼" ],
+      [ "ਡ", "ਢ", "ੜ", "ੜ" ],
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Enter"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Enter"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Enter"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Enter"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Caps"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Caps"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Caps"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Caps"
+        }
+      ],
+      [ "ੋ", "ਓ" ],
+      [ "ੇ", "ਏ" ],
+      [ "੍", "ਅ" ],
+      [ "ਿ", "ਇ" ],
+      [ "ੁ", "ਉ" ],
+      [ "ਪ", "ਫ", "ਫ਼", "ਫ਼" ],
+      [ "ਰ" ],
+      [ "ਕ", "ਖ", "ਖ਼", "ਖ਼" ],
+      [ "ਤ", "ਥ" ],
+      [ "ਚ", "ਛ" ],
+      [ "ਟ", "ਠ" ],
+      [ "਼", "ਞ" ]
+    ],
+    [
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        }
+      ],
+      [ "" ],
+      [ "ਂ", "ਂ" ],
+      [ "ਮ", "ਣ" ],
+      [ "ਨ" ],
+      [ "ਵ", "ੲ", "ੳ", "ੳ" ],
+      [ "ਲ", "ਲ਼" ],
+      [ "ਸ", "ਸ਼" ],
+      [ "," ],
+      [ ".", "|", "॥", "॥" ],
+      [ "ਯ" ],
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Shift"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Space"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Space"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Space"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "Space"
+        }
+      ],
+      [
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "AltGr"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "AltGr"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "AltGr"
+        },
+        {
+          "__symbolic": "select",
+          "expression": {
+            "__symbolic": "reference",
+            "name": "KeyboardClassKey"
+          },
+          "member": "AltGr"
+        }
+      ]
+    ]
+  ],
+  "lang": [ "pa" ]
+}

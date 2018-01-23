@@ -1,0 +1,14 @@
+CREATE TABLE `schedule` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CompanyId` int(11) DEFAULT NULL,
+  `ScheduleDate` datetime DEFAULT NULL,
+  `ActivityName` varchar(255) DEFAULT NULL,
+  `ActivityStartDate` datetime DEFAULT NULL,
+  `ActivityEndDate` datetime DEFAULT NULL,
+  `ActivityDetail` varchar(255) DEFAULT NULL,
+  `CreatedBy` int(11) DEFAULT NULL,
+  `CreatedDate` datetime DEFAULT NULL,
+  `ModifiedBy` int(11) DEFAULT NULL,
+  `Status` varchar(125) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;

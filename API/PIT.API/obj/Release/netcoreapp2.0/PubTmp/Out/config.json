@@ -1,0 +1,8 @@
+﻿{
+  "ConnectionStrings": {
+
+    "DataAccessMySqlProvider": "server=localhost;userid=root;password=P@ssw0rd;database=pit;Convert Zero Datetime=True;"
+
+  }
+ 
+}

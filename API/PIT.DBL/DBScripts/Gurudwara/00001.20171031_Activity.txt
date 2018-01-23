@@ -1,0 +1,13 @@
+CREATE TABLE `Activity` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+    `CompanyId` int,
+    `ActivityName` varchar(255),
+    `ActivityStartDate` datetime,
+    `ActivityEndDate` datetime, 
+    `ActivityDetail` varchar(255),
+    `CreatedBy` int,
+    `CreatedDate` datetime,
+    `ModifiedBy` int, 
+    Status varchar(125),
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

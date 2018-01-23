@@ -1,0 +1,8 @@
+E:\Projects\amrik\Projects\API\PIT.API
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=PIT.API
+--content-root=E:\Projects\amrik\Projects\API\PIT.API
+--file=E:\Projects\amrik\Projects\API\PIT.API\Views\Shared\Error.cshtml
+--file=E:\Projects\amrik\Projects\API\PIT.API\Views\Shared\_Layout.cshtml
+--file=E:\Projects\amrik\Projects\API\PIT.API\Views\_ViewImports.cshtml
+--file=E:\Projects\amrik\Projects\API\PIT.API\Views\_ViewStart.cshtml
