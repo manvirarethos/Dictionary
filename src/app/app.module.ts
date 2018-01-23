@@ -43,7 +43,7 @@ import { AppConfig } from './app.config';
     DictonaryModule,
         RouterModule.forRoot([])
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pa" },AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService,DictonaryService, HttpClient],
+  providers: [AppConfig, AuthService, StorageService, MenuService,LanguageService,SourceService,DictonaryService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

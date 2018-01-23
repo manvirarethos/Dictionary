@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { CloseModal, ValidateMe, ValidationCheck } from '../../../app.helpers';
 import { DictonaryService, LanguageService, SourceService } from '../../../services/_index';
-import { IKeyboardLayout, MAT_KEYBOARD_LAYOUTS, MatKeyboardComponent, MatKeyboardRef, MatKeyboardService } from '@ngx-material-keyboard/core';
 
 @Component({
   selector: 'app-adddictonary',

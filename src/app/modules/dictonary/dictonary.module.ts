@@ -14,7 +14,6 @@ import { SharedModule } from '../../shared/shared.module';
 
 // Services for the Module
 import { DictonaryService, HttpClient, SortingService, MenuService } from '../../services/_index';
-import { IKeyboardLayouts, keyboardLayouts, MAT_KEYBOARD_LAYOUTS, MatKeyboardModule } from '@ngx-material-keyboard/core';
 
 // Task Components for List, Add, Edit and Delete Oprations
 // import { RoleAddComponent } from './add/role.add.component';
@@ -38,7 +37,7 @@ import { DictonaryAddComponent } from './add/dictonary.Add.component';
         CommonModule,
         FormsModule,
         SelectModule,
-        MatKeyboardModule,
+        
         Ng2PaginationModule,
         BrowserAnimationsModule,
         SharedModule,

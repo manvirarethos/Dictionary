@@ -134,7 +134,7 @@
                           <ng-container *ngIf="!rec.Edit">
                             <td>{{rec.SourceName}}</td>
                             <td>{{rec.WordMeaning}}</td>
-                            <td >{{rec.LanguageName}}</td>
+                            <td>{{rec.LanguageName}}</td>
                             <td class="{{rec.LanguageCode}}">{{rec.Translation}}</td>
                             <td class="text-right">
 
@@ -191,7 +191,7 @@
                             <input required type="text" Name="WordMeaning" class="form-control listcss punjabi" [(ngModel)]="DictonarySource.WordMeaning">
                           </td>
                           <td>
-                            <select required class="form-control" name="TLangauge"  (change)="OnSource()" [(ngModel)]="DictonarySource.LanguageID">
+                            <select required class="form-control" name="TLangauge" (change)="OnSource()" [(ngModel)]="DictonarySource.LanguageID">
                               <option value="">Choose Language</option>
                               <option *ngFor="let lng of langList" value="{{lng.id}}">{{lng.languageName}}</option>
 
