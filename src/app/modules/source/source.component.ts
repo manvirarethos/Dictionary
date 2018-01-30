@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CloseModal, ValidateMe, ValidationCheck } from '../../app.helpers';
 import { SourceService, SortingService } from '../../services/_index';
 
 @Component({
@@ -119,18 +120,16 @@ export class SourceComponent {
         //  this.EditModel=Object.assign({},edit);
     }
     public onDelete(ID) {
-        this.Title = "Delete Confirmation"
-        this.Msg = "Are you sure to delete this record ?";
-        this.DeleteItemID = ID;
-      //  CloseModal("#commonModal");
+   this.DeleteItemID = ID;
+    CloseModal("#commonModal");
     }
 
 
     public btnOK(ID) {
-        this._service.Delete(this.DeleteItemID._id).subscribe(m => {
+        this._service.Delete(this.DeleteItemID.id).subscribe(m => {
             if (m.status == 1) {
                 this.Data.splice(this.Data.indexOf(this.DeleteItemID), 1);
-            //    CloseModal("#commonModal");
+               CloseModal("#commonModal");
             }
             else {
 

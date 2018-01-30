@@ -27,7 +27,7 @@
                                     <div class="col-sm-6">
                                         <div id="datatables_filter" class="dataTables_filter">
                                             <label class="form-group">
-                                                <input type="search" class="form-control input-sm" placeholder="Search records" aria-controls="datatables">
+                                                <input type="search" [(ngModel)]="txt_src" class="form-control input-sm" placeholder="Search records" aria-controls="datatables">
                                             </label>
                                         </div>
                                     </div>
@@ -65,11 +65,12 @@
                                             <tbody>
 
 
-                                                <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p }">
+                                                <tr *ngFor="let rec of Data| paginate: { itemsPerPage: 20, currentPage: p } | SearchBy:{field:'sourceName',data:txt_src}">
                                                     <ng-container *ngIf="!rec.Edit">
-                                                        <td tabindex="0" class="sorting_1">{{rec.sourceName}}</td>
+                                                        <td tabindex="0" class="sorting_1" innerHTML='{{rec.sourceName | HighLight:txt_src}}'></td>
                                                         <td>{{rec.sourceCode}}</td>
-                                                        <td>{{rec.status}}</td>
+                                                        <td *ngIf="rec.status == true">Enabled</td>
+                                                        <td *ngIf="rec.status == false">Disabled</td>
                                                         <td class="text-right">
 
                                                             <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">
@@ -160,3 +161,4 @@
         <!-- end row -->
     </div>
 </div>
+<app-confirm [Title]="'Delete Confirmation'" [desc]="'Are you sure to delete this record ?'" (btnOKClicked)="btnOK($event)"></app-confirm>

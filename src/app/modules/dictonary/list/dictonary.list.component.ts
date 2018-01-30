@@ -71,7 +71,7 @@ export class DictonaryListComponent {
 
 
   public btnOK(ID) {
-    this._service.Delete(this.DeleteItemID._id).subscribe(m => {
+    this._service.Delete(this.DeleteItemID.id).subscribe(m => {
       if (m.status == 1) {
         this.Data.splice(this.Data.indexOf(this.DeleteItemID), 1);
         CloseModal("#commonModal");

@@ -26,11 +26,13 @@ namespace PIT.BAL.Services.Dictonary
 
             try
             {
-                var oReoord = dbSet.Where(m => m.ID == Id ).FirstOrDefault();
-                if (oReoord == null)
+                Source oReoord = dbSet.Where(m => m.ID == Id).FirstOrDefault();
+                if (oReoord != null)
                 {
-                    oOutput.Status = 0;
-                    oOutput.Msg = "Sorry, No record exist";
+                   dbSet.Remove(oReoord);
+                    oDB.SaveChanges();
+                    oOutput.Status = 1;
+                    oOutput.Msg = "done";
                 }
             }
             catch (Exception ex)

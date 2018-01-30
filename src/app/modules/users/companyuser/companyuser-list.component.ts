@@ -89,7 +89,6 @@ export class CompanyUserListComponent {
     this._router.navigate(['user/add']);
   }
   onEdit(user) {
-    alert(JSON.stringify(user));
     this._router.navigate(['user/edit', user.id]);
   }
   public onDelete(user) {

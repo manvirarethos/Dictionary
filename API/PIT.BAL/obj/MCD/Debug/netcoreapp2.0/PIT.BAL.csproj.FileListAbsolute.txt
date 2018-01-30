@@ -1,0 +1,10 @@
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\bin\MCD\Debug\netcoreapp2.0\PIT.BAL.deps.json
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\bin\MCD\Debug\netcoreapp2.0\PIT.BAL.dll
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\bin\MCD\Debug\netcoreapp2.0\PIT.BAL.pdb
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\bin\MCD\Debug\netcoreapp2.0\PIT.DBL.dll
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\bin\MCD\Debug\netcoreapp2.0\PIT.DBL.pdb
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\obj\MCD\Debug\netcoreapp2.0\PIT.BAL.csproj.CoreCompileInputs.cache
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\obj\MCD\Debug\netcoreapp2.0\PIT.BAL.AssemblyInfoInputs.cache
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\obj\MCD\Debug\netcoreapp2.0\PIT.BAL.AssemblyInfo.cs
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\obj\MCD\Debug\netcoreapp2.0\PIT.BAL.dll
+E:\CSharpProgram\gitProject\PixInfotechProject\Dictionary\API\PIT.BAL\obj\MCD\Debug\netcoreapp2.0\PIT.BAL.pdb

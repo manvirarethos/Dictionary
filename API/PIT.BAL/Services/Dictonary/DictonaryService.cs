@@ -23,7 +23,7 @@ namespace PIT.BAL.Services.Dictonary
         public ResultModel AutoSearch(string query)
         {
             ResultModel oModel = new ResultModel();
-            oModel.Data = dbSet.Where(m => m.Word.StartsWith(query)).OrderBy(m => m.Word).Select(m => new SelectListModel {ID= m.ID, Name = m.Word }).ToList();
+            oModel.Data = dbSet.Where(m => m.Word.StartsWith(query)).OrderBy(m => m.Word).Select(m => new SelectListModel { ID = m.ID, Name = m.Word }).ToList();
             return oModel;
         }
 
@@ -34,11 +34,23 @@ namespace PIT.BAL.Services.Dictonary
 
             try
             {
-                var oReoord = dbSet.Where(m => m.ID == Id).FirstOrDefault();
-                if (oReoord == null)
+                Dictonarytb oReoord = dbSet.Where(m => m.ID == Id).FirstOrDefault();
+                if (oReoord != null)
                 {
-                    oOutput.Status = 0;
-                    oOutput.Msg = "Sorry, No record exist";
+                    DictonaryLanguage oDictonaryLanguage = oDB.DictonaryLanguage.Where(s => s.DictonarytbID == Id).FirstOrDefault();
+                    if (oDictonaryLanguage != null)
+                    {
+                        oDB.DictonaryLanguage.Remove(oDictonaryLanguage);
+                    }
+                    DictonarySource oDictonarySource = oDB.DictonarySource.Where(s => s.DictonarytbID == Id).FirstOrDefault();
+                    if (oDictonarySource != null)
+                    {
+                        oDB.DictonarySource.Remove(oDictonarySource);
+                    }
+                    dbSet.Remove(oReoord);
+                    oDB.SaveChanges();
+                    oOutput.Status = 1;
+                    oOutput.Msg = "done";
                 }
             }
             catch (Exception ex)
@@ -89,8 +101,32 @@ namespace PIT.BAL.Services.Dictonary
             ResultModel oOutput = new ResultModel();
             try
             {
-                oOutput.Data = dbSet.ToList();
-
+               
+             DictonaryModel oDictonaryModel = Mapper.Map<DictonaryModel>(dbSet.Include("DictonaryLanguage").Include("DictonarySource").Where(m => m.ID == Id).FirstOrDefault());
+           List<Source> oSource = oDB.Source.ToList();
+           List<Language> oLanguage = oDB.Language.ToList();
+            if(oDictonaryModel.DictonarySource != null && oSource != null){
+            foreach (var item in oDictonaryModel.DictonarySource)
+            {
+                if(item.SourceID != null && item.SourceID > 0){
+                    item.SourceName = oSource.Where(s => s.ID == item.SourceID).FirstOrDefault().SourceName;
+                }
+                if(item.LanguageID != null){
+                    item.LanguageName = oLanguage.Where(s => s.ID == item.LanguageID).FirstOrDefault().LanguageName;
+                }
+            }
+           }
+           if(oDictonaryModel.DictonaryLanguage != null && oLanguage != null)
+           {
+            foreach (var item in oDictonaryModel.DictonaryLanguage)
+            {
+                 if(item.LanguageID != null){
+                    item.LanguageName = oLanguage.Where(s => s.ID == item.LanguageID).FirstOrDefault().LanguageName;
+                 }
+            }
+           }
+            
+            oOutput.Data = oDictonaryModel;
             }
             catch (Exception ex)
             {
@@ -133,8 +169,8 @@ namespace PIT.BAL.Services.Dictonary
         public ResultModel SearchWord(string query, int page)
         {
             ResultModel oModel = new ResultModel();
-           
-            oModel.Data = dbSet.Include("DictonaryLanguage").Include("DictonarySource").Where(m => m.ID==page).FirstOrDefault();
+
+            oModel.Data = dbSet.Include("DictonaryLanguage").Include("DictonarySource").Where(m => m.ID == page).FirstOrDefault();
             return oModel;
         }
         public ResultModel SearchWord(string query)
@@ -157,8 +193,18 @@ namespace PIT.BAL.Services.Dictonary
                 }
                 else
                 {
-                    oDictonary = Mapper.Map(obj, oDictonary);
-                    oDB.SaveChanges();
+                    List<DictonaryLanguage> oDictonaryLanguage = oDB.DictonaryLanguage.Where(s => s.DictonarytbID == obj.ID).ToList();
+                  if(oDictonaryLanguage != null){
+                    oDB.DictonaryLanguage.RemoveRange(oDictonaryLanguage);
+                  oDB.SaveChanges();
+                   }
+                   List<DictonarySource> oDictonarySource = oDB.DictonarySource.Where(s => s.DictonarytbID == obj.ID).ToList();
+                  if(oDictonarySource != null){
+                    oDB.DictonarySource.RemoveRange(oDictonarySource);
+                  oDB.SaveChanges();
+                   }
+                oDictonary = Mapper.Map(obj, oDictonary);
+                oDB.SaveChanges();
                 }
                 oOutput.Data = oDictonary;
             }

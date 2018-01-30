@@ -15,9 +15,8 @@ import { SharedModule } from '../../shared/shared.module';
 // Services for the Module
 import { DictonaryService, HttpClient, SortingService, MenuService } from '../../services/_index';
 
-// Task Components for List, Add, Edit and Delete Oprations
-// import { RoleAddComponent } from './add/role.add.component';
-// import { RoleEditComponent } from './edit/role.edit.component';
+// Dictonary Components for List, Add, Edit and Delete Oprations
+import { DictonaryEditComponent } from './edit/dictonary.edit.component';
 import { DictonaryListComponent } from './list/dictonary.list.component';
 import { DictonaryAddComponent } from './add/dictonary.Add.component';
 
@@ -28,9 +27,7 @@ import { DictonaryAddComponent } from './add/dictonary.Add.component';
     declarations: [
         DictonaryListComponent,
         DictonaryAddComponent,
-        // RoleEditComponent
-
-
+        DictonaryEditComponent
     ],
     imports: [
 
@@ -43,8 +40,8 @@ import { DictonaryAddComponent } from './add/dictonary.Add.component';
         SharedModule,
         RouterModule.forChild([
             { path: 'dictonary/list', component: DictonaryListComponent },
-            { path: 'dictonary/add', component: DictonaryAddComponent }
-            // { path: 'role/edit/:id', component: RoleEditComponent }
+            { path: 'dictonary/add', component: DictonaryAddComponent },
+             { path: 'dictonary/edit/:id', component: DictonaryEditComponent }
 
         ])
     ],

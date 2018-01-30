@@ -12,7 +12,6 @@ namespace PIT.DBL.Schema
         public string LanguageCode { get; set; }
         public int DictonarytbID { get; set; }
         public string Word { get; set; }
-
-        public virtual Dictonarytb Dictonarytb { get; set; }
+        //public virtual Dictonarytb Dictonarytb { get; set; }
     }
 }

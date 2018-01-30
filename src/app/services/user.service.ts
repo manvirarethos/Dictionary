@@ -20,7 +20,6 @@ export class UserService {
 
     // Add New User
     Add(data) {
-        alert(JSON.stringify(data));
         return this.http.post("/user", data);
     }
 

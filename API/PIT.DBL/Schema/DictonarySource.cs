@@ -14,6 +14,6 @@ namespace PIT.DBL.Schema
         public int DictonarytbID { get; set; }
         public string WordMeaning { get; set; }
         public string Translation { get; set; }
-        public virtual Dictonarytb Dictonarytb { get; set; }
+        //public virtual Dictonarytb Dictonarytb { get; set; }
     }
 }

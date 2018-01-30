@@ -6671,26 +6671,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amrik\\.nuget\\packages\\": {},
+    "C:\\Users\\JASPINDER SINGH\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "E:\\amrik\\Projects\\API\\PIT.DBL\\PIT.DBL.csproj",
+      "projectUniqueName": "e:\\CSharpProgram\\gitProject\\PixInfotechProject\\Dictionary\\API\\PIT.DBL\\PIT.DBL.csproj",
       "projectName": "PIT.DBL",
-      "projectPath": "E:\\amrik\\Projects\\API\\PIT.DBL\\PIT.DBL.csproj",
-      "packagesPath": "C:\\Users\\amrik\\.nuget\\packages\\",
-      "outputPath": "E:\\amrik\\Projects\\API\\PIT.DBL\\obj\\",
+      "projectPath": "e:\\CSharpProgram\\gitProject\\PixInfotechProject\\Dictionary\\API\\PIT.DBL\\PIT.DBL.csproj",
+      "packagesPath": "C:\\Users\\JASPINDER SINGH\\.nuget\\packages\\",
+      "outputPath": "e:\\CSharpProgram\\gitProject\\PixInfotechProject\\Dictionary\\API\\PIT.DBL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\amrik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\JASPINDER SINGH\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6698,7 +6695,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
@@ -6714,23 +6711,23 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[6.1.1, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "[2.0.0, )"
-          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.0, )",
+            "version": "2.0.0",
             "autoReferenced": true
+          },
+          "AutoMapper": {
+            "target": "Package",
+            "version": "6.1.1"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "2.0.0"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
-            "version": "[2.0.0, )"
+            "version": "2.0.0"
           }
         },
         "imports": [

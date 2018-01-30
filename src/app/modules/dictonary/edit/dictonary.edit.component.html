@@ -1,0 +1,238 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+  
+        <div class="col-md-12">
+          <div class="card">
+            <form ngNoForm id="formValidation" action="#" method="">
+              <div class="card-header card-header-icon" data-background-color="rose">
+                <i class="material-icons">contacts</i>
+              </div>
+              <div class="card-content">
+                <h4 class="card-title">Edit Words</h4>
+                <div class="row">
+  
+                  <div class="form-group col-md-6">
+                    <label class="control-label">
+                      Wright Words
+  
+                    </label>
+                    <input class="form-control punjabi" name="name" [(ngModel)]="AddModel.word" required />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="control-label">
+                      Translation
+  
+                    </label>
+                    <input class="form-control punjabi" name="Translation" [(ngModel)]="AddModel.translation" required />
+                  </div>
+                </div>
+  
+  
+                <div class="form-group col-sm-12">
+  
+                  <label style="color:black">
+                    <b>Language</b>
+                  </label>
+                  <div class="table-responsive">
+                    <div class="form-group">
+                      <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
+                        <thead>
+                          <tr>
+                            <th>Language</th>
+                            <th>Word</th>
+                            <th>Action</th>
+                          </tr>
+  
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let rec of AddModel.dictonaryLanguage">
+                            <ng-container *ngIf="!rec.Edit">
+                            <!-- <td "filterItemsOfType(rec.languageID)"><span >{{lang}}</span></td> -->
+                            <td>{{rec.languageName}}</td>
+                            <td class="{{rec.languageCode}}">{{rec.word}}</td>
+                              <td class="text-right">
+  
+                                <a (click)="onEdit(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                  <i class="material-icons">edit</i>
+                                </a>
+                                <a (click)="onDelete(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                  <i class="material-icons">delete</i>
+                                </a>
+                              </td>
+                            </ng-container>
+                            <ng-container *ngIf="rec.Edit">
+                              <td>
+                                <select required class="form-control" name="Langauge" [(ngModel)]="editDictonaryLanguage.languageID">
+                                  <option value="">Choose Language</option>
+                                  <option *ngFor="let lng of langList" value="{{lng.id}}">{{lng.languageName}}</option>
+  
+                                </select>
+                              </td>
+                              <td>
+                                <input required type="text" Name="word" class="form-control listcss {{editDictonaryLanguage.languageCode}}" [(ngModel)]="editDictonaryLanguage.word">
+                              </td>
+  
+                              <td class="text-right">
+                                <a (click)="Update(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                  <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="Cancel(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                  <i class="material-icons">close</i>
+                                </a>
+                              </td>
+                            </ng-container>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+  
+                          <tr>
+                            <td>
+                              <select required class="form-control" name="FLang" (change)="OnLanguage()" [(ngModel)]="dictonaryLanguage.languageID">
+                                <option value="">Choose Language</option>
+                                <option *ngFor="let lng of langList" value="{{lng.id}}">{{lng.languageName}}</option>
+                              </select>
+                            </td>
+  
+                            <td>
+                              <input name="FWord" required class="form-control listcss {{lngLang}}" [(ngModel)]="dictonaryLanguage.word">
+                            </td>
+  
+  
+                            <td class="text-right">
+                              <a (click)="AddLanguage()" class="btn btn-simple btn-warning btn-icon edit">
+                                <i class="material-icons">save</i>
+                              </a>
+                            </td>
+                          </tr>
+  
+                        </tfoot>
+                      </table>
+                    </div>
+  
+  
+                  </div>
+                </div>
+  
+                <div class="form-group col-sm-12">
+                  <label style="color:black">
+                    <b>By Source</b>
+                  </label>
+                  <div class="table-responsive">
+                    <div class="form-group">
+                      <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline">
+                        <thead>
+                          <tr>
+                            <th>Source</th>
+                            <th>Word</th>
+                            <th>Lang</th>
+                            <th>Translation</th>
+                          </tr>
+  
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let rec of AddModel.dictonarySource">
+                            <ng-container *ngIf="!rec.Edit">
+                              <td>{{rec.sourceName}}</td>
+                              <td>{{rec.wordMeaning}}</td>
+                              <td>{{rec.languageName}}</td>
+                              <td class="{{rec.languageCode}}">{{rec.translation}}</td>
+                              <td class="text-right">
+  
+                                <a (click)="onEditSource(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                  <i class="material-icons">edit</i>
+                                </a>
+                                <a (click)="onDeleteSource(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                  <i class="material-icons">delete</i>
+                                </a>
+                              </td>
+                            </ng-container>
+                            <ng-container *ngIf="rec.Edit">
+                              <td>
+                                <select required class="form-control" name="Status" [(ngModel)]="editDictonarySource.sourceID">
+                                  <option value="">Choose Source</option>
+                                  <option *ngFor="let lng of sourceList" value="{{lng.id}}">{{lng.sourceName}}</option>
+                                </select>
+                              </td>
+                              <td>
+                                <input required type="text" Name="word" class="form-control listcss" [(ngModel)]="editDictonarySource.wordMeaning">
+                              </td>
+                              <td>
+                                <select required class="form-control" name="TLangauge" (change)="OnSource()" [(ngModel)]="editDictonarySource.languageID">
+                                  <option value="">Choose Language</option>
+                                  <option *ngFor="let lng of langList" value="{{lng.id}}">{{lng.languageName}}</option>
+  
+                                </select>
+                              </td>
+                              <td>
+                                <input required type="text" Name="Translation" class="form-control listcss {{editDictonarySource.languageCode}}" [(ngModel)]="editDictonarySource.translation">
+                              </td>
+  
+                              <td class="text-right">
+                                <a (click)="UpdateSource(rec)" class="btn btn-simple btn-warning btn-icon edit">
+                                  <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="Cancel(rec)" class="btn btn-simple btn-danger btn-icon remove">
+                                  <i class="material-icons">close</i>
+                                </a>
+                              </td>
+                            </ng-container>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+  
+                          <tr>
+                            <td>
+                              <select required class="form-control" name="Status" [(ngModel)]="dictonarySource.sourceID">
+                                <option value="">Choose Source</option>
+                                <option *ngFor="let lng of sourceList" value="{{lng.id}}">{{lng.sourceName}}</option>
+                              </select>
+                            </td>
+                            <td>
+                              <input required type="text" Name="WordMeaning" class="form-control listcss punjabi" [(ngModel)]="dictonarySource.wordMeaning">
+                            </td>
+                            <td>
+                              <select required class="form-control" name="TLangauge" (change)="OnSource()" [(ngModel)]="dictonarySource.languageID">
+                                <option value="">Choose Language</option>
+                                <option *ngFor="let lng of langList" value="{{lng.id}}">{{lng.languageName}}</option>
+  
+                              </select>
+                            </td>
+                            <td>
+                              <input required type="text" Name="Translation" class="form-control listcss  {{lngSource}}" [(ngModel)]="dictonarySource.translation">
+                            </td>
+  
+                            <td class="text-right">
+                              <a (click)="AddSource()" class="btn btn-simple btn-warning btn-icon edit">
+                                <i class="material-icons">save</i>
+                              </a>
+                            </td>
+                          </tr>
+  
+                        </tfoot>
+                      </table>
+                    </div>
+  
+  
+                  </div>
+                </div>
+  
+  
+                <div class="text-center pull-right">
+  
+                  <button type="button" (click)="onBack()" class="btn btn-default btn-fill btn-wd">Back to list</button>
+                  <button type="button" (click)="Save()" class="btn btn-rose btn-fill btn-wd">Save</button>
+                </div>
+              </div>
+            </form>
+  
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  
+  </div>
+  <app-confirm [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></app-confirm>
+  

@@ -30,6 +30,13 @@ namespace PIT.API.Controllers.Dictonary
             return _svr.GetAll();
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public ResultModel Get(int id)
+        {
+           return _svr.GetById(id);
+        }
+
         [HttpPost]
         public ResultModel Post([FromBody]DictonaryModel obj)
         {
@@ -43,9 +50,10 @@ namespace PIT.API.Controllers.Dictonary
         }
 
         [HttpDelete]
-        public ResultModel Delete([FromBody]DictonaryModel obj)
+        [Route("{id}")]
+        public ResultModel Delete(int id)
         {
-            return _svr.Delete(obj.ID);
+            return _svr.Delete(id);
         }
         
         

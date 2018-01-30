@@ -11,5 +11,6 @@ namespace PIT.BAL.Model
         public string LanguageCode { get; set; }
         public int DictonaryID { get; set; }
         public string Word { get; set; }
+        public string LanguageName { get; set; }
     }
 }

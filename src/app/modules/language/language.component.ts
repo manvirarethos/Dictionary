@@ -122,8 +122,6 @@ export class LanguageComponent {
         //  this.EditModel=Object.assign({},edit);
     }
     public onDelete(ID) {
-        this.Title = "Delete Confirmation"
-        this.Msg = "Are you sure to delete this record ?";
         this.DeleteItemID = ID;
         console.log(ID);
         CloseModal("#commonModal");
@@ -131,10 +129,10 @@ export class LanguageComponent {
 
 
     public btnOK(ID) {
-        this._service.Delete(this.DeleteItemID._id).subscribe(m => {
+        this._service.Delete(this.DeleteItemID.id).subscribe(m => {
             if (m.status == 1) {
                 this.Data.splice(this.Data.indexOf(this.DeleteItemID), 1);
-            //    CloseModal("#commonModal");
+               CloseModal("#commonModal");
             }
             else {
 

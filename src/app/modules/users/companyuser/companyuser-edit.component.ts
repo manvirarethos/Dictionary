@@ -40,7 +40,6 @@ export class CompanyUserEditComponent {
 
   Save() {
     if (ValidationCheck("#userForm")) {
-      alert(JSON.stringify(this.ApplicationUserModel));
       this._service.Add(this.ApplicationUserModel).subscribe(m => {
         console.log("Save Called", m);
         if (m.requestStatus == 1) {

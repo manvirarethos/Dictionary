@@ -50,9 +50,10 @@ namespace PIT.API.Controllers.Dictonary
         }
 
         [HttpDelete]
-        public ResultModel Delete([FromBody]LanguageModel obj)
+         [Route("{id}")]
+        public ResultModel Delete(int id)
         {
-            return _svr.Delete(obj.ID);
+            return _svr.Delete(id);
         }
     }
 }
