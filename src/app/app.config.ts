@@ -9,8 +9,7 @@ export class AppConfig {
         apiloginurl: 'http://8.38.88.31:81/api',
         debug: true,
         limit: 20,
-
-    };
+ };
 
     constructor() {
     }
