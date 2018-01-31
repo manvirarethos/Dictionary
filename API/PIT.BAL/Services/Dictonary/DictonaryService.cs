@@ -105,18 +105,18 @@ namespace PIT.BAL.Services.Dictonary
              DictonaryModel oDictonaryModel = Mapper.Map<DictonaryModel>(dbSet.Include("DictonaryLanguage").Include("DictonarySource").Where(m => m.ID == Id).FirstOrDefault());
            List<Source> oSource = oDB.Source.ToList();
            List<Language> oLanguage = oDB.Language.ToList();
-            if(oDictonaryModel.DictonarySource != null && oSource != null){
+            if(oDictonaryModel.DictonarySource != null && oSource.Count > 0){
             foreach (var item in oDictonaryModel.DictonarySource)
             {
                 if(item.SourceID != null && item.SourceID > 0){
                     item.SourceName = oSource.Where(s => s.ID == item.SourceID).FirstOrDefault().SourceName;
                 }
-                if(item.LanguageID != null){
+                if(item.LanguageID != null && oLanguage.Count > 0){
                     item.LanguageName = oLanguage.Where(s => s.ID == item.LanguageID).FirstOrDefault().LanguageName;
                 }
             }
            }
-           if(oDictonaryModel.DictonaryLanguage != null && oLanguage != null)
+           if(oDictonaryModel.DictonaryLanguage != null && oLanguage.Count > 0)
            {
             foreach (var item in oDictonaryModel.DictonaryLanguage)
             {
