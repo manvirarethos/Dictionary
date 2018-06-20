@@ -1,9 +1,0 @@
-﻿{
-  "ConnectionStrings": {
-
-
-    // "DataAccessMySqlProvider": "server=8.38.88.31;userid=Amrik;password=P@ssw0rd;database=pit;Convert Zero Datetime=True;"
-    "DataAccessMySqlProvider": "server=8.38.88.31;userid=Amrik;password=P@ssw0rd;database=ddb;Convert Zero Datetime=True;"
-  }
- 
-}
